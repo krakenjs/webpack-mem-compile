@@ -59,7 +59,7 @@ export async function webpackCompile({ webpack, config = { mode: 'production' },
                 return reject(err);
             }
 
-            if (stats.hasErrors() || stats.hasWarnings()) {
+            if (stats.hasErrors()) {
                 return reject(new Error(stats.toString({
                     errorDetails: true,
                     warnings:     true
