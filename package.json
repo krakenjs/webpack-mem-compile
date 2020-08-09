@@ -10,7 +10,7 @@
     "test": "npm run lint && npm run flow-typed && npm run flow && npm run jest",
     "flow": "flow",
     "lint": "eslint src/ test/",
-    "jest": "jest test --env=node --no-cache --coverage --verbose --runInBand --silent=false",
+    "jest": "jest test --env=node --no-cache --coverage --collectCoverageFrom=./src --verbose --runInBand --silent=false",
     "prepublishOnly": "npm run babel",
     "postpublish": "git checkout ./src"
   },

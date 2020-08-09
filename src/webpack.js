@@ -8,13 +8,13 @@ import { getTempFile } from './util';
 type WebpackConfig = {
     entry? : string,
     mode? : string,
-    output? : {
+    output? : {|
         path : string,
         filename : string
-    }
+    |}
 };
 
-type Webpack = (WebpackConfig) => {
+type Webpack = (WebpackConfig) => {|
     outputFileSystem : {|
         data : {
             [string] : string
@@ -22,15 +22,15 @@ type Webpack = (WebpackConfig) => {
     |},
     run : ((
         err : Error,
-        stats : {
+        stats : {|
             hasErrors : () => boolean,
             hasWarnings : () => boolean,
-            toString : ({ errorDetails : boolean, warnings : boolean }) => string
-        }
+            toString : ({| errorDetails : boolean, warnings : boolean |}) => string
+        |}
     ) => void) => void
-};
+|};
 
-export async function webpackCompile({ webpack, config = { mode: 'production' }, code } : { webpack : Webpack, config? : WebpackConfig, code? : string }) : Promise<string> {
+export async function webpackCompile({ webpack, config = { mode: 'production' }, code } : {| webpack : Webpack, config? : WebpackConfig, code? : string |}) : Promise<string> {
     
     const webpackConfig = {
         ...config,
