@@ -11,7 +11,7 @@
     "flow": "flow",
     "lint": "eslint src/ test/",
     "jest": "jest test --env=node --no-cache --coverage --verbose --runInBand --silent=false",
-    "prepublish": "in-publish && npm run babel || not-in-publish",
+    "prepublishOnly": "npm run babel",
     "postpublish": "git checkout ./src"
   },
   "repository": {
