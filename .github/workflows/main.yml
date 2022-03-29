@@ -24,5 +24,8 @@ jobs:
         with:
           useLockFile: false
 
+      - name: 👕 Lint commit messages
+        uses: wagoid/commitlint-github-action@v4
+
       - name: ▶️ Run test script
         run: npm run test
