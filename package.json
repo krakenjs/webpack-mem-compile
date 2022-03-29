@@ -1,5 +1,5 @@
 {
-  "name": "webpack-mem-compile",
+  "name": "@krakenjs/webpack-mem-compile",
   "version": "1.0.2",
   "description": "Webpack compile to memory",
   "main": "index.js",
