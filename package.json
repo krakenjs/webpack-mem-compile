@@ -21,12 +21,12 @@
   "author": "dbrain",
   "license": "MIT",
   "engines": {
-    "node": ">= 6"
+    "node": ">= 14"
   },
   "devDependencies": {
     "babel-core": "^7.0.0-bridge.0",
     "flow-bin": "0.85.0",
-    "grumbler-scripts": "^3"
+    "@krakenjs/grumbler-scripts": "^6"
   },
   "dependencies": {
     "fs-extra": "^7.0.1",
