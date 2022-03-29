@@ -24,6 +24,8 @@ Compile from a webpack config to a string in memory.
 npm install --save @krakenjs/webpack-mem-compile
 ```
 
+Note: this package is requires webpack@4 as a peer dependency
+
 ## Use
 
 Using a webpack config with an entry point:
