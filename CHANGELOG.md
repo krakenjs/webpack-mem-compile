@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/krakenjs/webpack-mem-compile/compare/v2.0.0...v2.0.1) (2022-03-29)
+
+
+* update license file ([7e73562](https://github.com/krakenjs/webpack-mem-compile/commit/7e73562a0a70c7923a960beecc129bc7aeda9a21))
+* update README ([171b28d](https://github.com/krakenjs/webpack-mem-compile/commit/171b28de9ec096660f7bd3ada7bef8a8582fe6a6))
+
 ## [2.0.0](https://github.com/krakenjs/webpack-mem-compile/compare/v1.0.2...v2.0.0) (2022-03-29)
 
 
