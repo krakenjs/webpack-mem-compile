@@ -3,7 +3,7 @@
 import { join } from 'path';
 
 import webpack from 'webpack';
-import { getWebpackConfig } from 'grumbler-scripts/config/webpack.config';
+import { getWebpackConfig } from '@krakenjs/grumbler-scripts/config/webpack.config';
 
 import { webpackCompile } from '../src';
 

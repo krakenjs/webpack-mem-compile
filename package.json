@@ -1,18 +1,61 @@
 {
-  "name": "webpack-mem-compile",
+  "name": "@krakenjs/webpack-mem-compile",
   "version": "1.0.2",
   "description": "Webpack compile to memory",
   "main": "index.js",
   "scripts": {
     "flow-typed": "flow-typed install && flow-typed install express@^4 && flow-typed install jest@23",
     "flow:build": "flow gen-flow-files ./src/index.js --out-dir ./src",
-    "babel": "babel ./src --exclude=node_modules --out-dir ./src --source-maps inline",
+    "babel": "babel ./src --ignore=node_modules --out-dir ./src --source-maps inline",
     "test": "npm run lint && npm run flow-typed && npm run flow && npm run jest",
     "flow": "flow",
     "lint": "eslint src/ test/",
     "jest": "jest test --env=node --no-cache --coverage --collectCoverageFrom=./src --verbose --runInBand --silent=false",
     "prepublishOnly": "npm run babel",
-    "postpublish": "git checkout ./src"
+    "prepare": "husky install",
+    "prerelease": "npm run test && npm run flow:build && npm run babel",
+    "release": "standard-version",
+    "postrelease": "git push && git push --follow-tags && npm publish && git checkout ./src && git clean -f"
+  },
+  "standard-version": {
+    "types": [
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "chore",
+        "hidden": false
+      },
+      {
+        "type": "docs",
+        "hidden": false
+      },
+      {
+        "type": "style",
+        "hidden": false
+      },
+      {
+        "type": "refactor",
+        "hidden": false
+      },
+      {
+        "type": "perf",
+        "hidden": false
+      },
+      {
+        "type": "test",
+        "hidden": false
+      },
+      {
+        "type": "ci",
+        "hidden": true
+      }
+    ]
   },
   "repository": {
     "type": "git",
@@ -21,12 +64,16 @@
   "author": "dbrain",
   "license": "MIT",
   "engines": {
-    "node": ">= 6"
+    "node": ">= 14"
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@krakenjs/grumbler-scripts": "^6",
     "babel-core": "^7.0.0-bridge.0",
     "flow-bin": "0.85.0",
-    "grumbler-scripts": "^3"
+    "husky": "^7.0.4",
+    "standard-version": "^9.3.2"
   },
   "dependencies": {
     "fs-extra": "^7.0.1",

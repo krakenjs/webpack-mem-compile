@@ -7,7 +7,7 @@ Compile from a webpack config to a string in memory.
 ## Install
 
 ```bash
-npm install --save webpack-mem-compile
+npm install --save @krakenjs/webpack-mem-compile
 ```
 
 ## Use
@@ -15,7 +15,7 @@ npm install --save webpack-mem-compile
 Using a webpack config with an entry point:
 
 ```javascript
-import { webpackCompile } from 'webpack-mem-compile';
+import { webpackCompile } from '@krakenjs/webpack-mem-compile';
 
 const code = await webpackCompile({
     webpack,
@@ -28,7 +28,7 @@ const code = await webpackCompile({
 Using raw code:
 
 ```javascript
-import { webpackCompile } from 'webpack-mem-compile';
+import { webpackCompile } from '@krakenjs/webpack-mem-compile';
 
 const code = await webpackCompile({
     webpack,
