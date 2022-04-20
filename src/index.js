@@ -1,3 +1,3 @@
 /* @flow */
 
-export * from './webpack';
+export * from "./webpack";
