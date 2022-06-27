@@ -1,6 +1,4 @@
-
-webpack memory compile
-----------------------
+## webpack memory compile
 
 [![build status][build-badge]][build]
 [![code coverage][coverage-badge]][coverage]
@@ -44,12 +42,12 @@ const code = await webpackCompile({
 Using raw code:
 
 ```javascript
-import { webpackCompile } from '@krakenjs/webpack-mem-compile';
+import { webpackCompile } from "@krakenjs/webpack-mem-compile";
 
 const code = await webpackCompile({
-    webpack,
-    code: `
+  webpack,
+  code: `
         console.log('Hello World!');
-    `
-})
+    `,
+});
 ```

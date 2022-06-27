@@ -7,8 +7,10 @@
     "flow-typed": "flow-typed install && flow-typed install express@^4 && flow-typed install jest@23",
     "flow:build": "flow gen-flow-files ./src/index.js --out-dir ./src",
     "babel": "babel ./src --ignore=node_modules --out-dir ./src --source-maps inline",
-    "test": "npm run lint && npm run flow-typed && npm run flow && npm run jest",
+    "test": "npm run format:check && npm run lint && npm run flow-typed && npm run flow && npm run jest",
     "flow": "flow",
+    "format": "prettier --write --ignore-unknown .",
+    "format:check": "prettier --check .",
     "lint": "eslint src/ test/",
     "jest": "jest test --env=node --no-cache --coverage --collectCoverageFrom=./src --verbose --runInBand --silent=false",
     "prepublishOnly": "npm run babel",
@@ -69,14 +71,19 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
-    "@krakenjs/grumbler-scripts": "^6",
+    "@krakenjs/grumbler-scripts": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "flow-bin": "0.85.0",
     "husky": "^7.0.4",
+    "lint-staged": "^12.4.0",
+    "prettier": "^2.6.2",
     "standard-version": "^9.3.2"
   },
   "dependencies": {
     "fs-extra": "^7.0.1",
     "uuid": "^3.3.2"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
   }
 }

@@ -1,3 +1,3 @@
 /* @flow */
 
-export * from './library';
+export * from "./library";
