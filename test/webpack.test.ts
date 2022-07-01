@@ -1,15 +1,17 @@
-/* @flow */
-
 import { join } from "path";
 
+import { test, expect } from "vitest";
 import webpack from "webpack";
-import { getWebpackConfig } from "@krakenjs/grumbler-scripts/config/webpack.config";
+import { getWebpackConfig } from "@krakenjs/webpack-config-grumbler";
 
 import { webpackCompile } from "../src";
 
 test("should webpack compile a module and successfully run the result", async () => {
   const code = await webpackCompile({
+    // @ts-expect-error webpack type does not match configuration
     webpack,
+    // @ts-expect-error Configuration not assignable to WebpackConfig
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     config: getWebpackConfig({
       entry: join(__dirname, "test-module"),
     }),
@@ -20,24 +22,26 @@ test("should webpack compile a module and successfully run the result", async ()
   }
 
   const module = {};
-
   // eslint-disable-next-line no-eval, security/detect-eval-with-expression
   eval(code);
 
+  // @ts-expect-error module.exports
   // eslint-disable-next-line import/no-commonjs
   if (!module.exports.foo || typeof module.exports.foo !== "function") {
     throw new Error(`Expected module to export foo function`);
   }
 
-  // eslint-disable-next-line import/no-commonjs
-  if (module.exports.foo(5) !== 6) {
-    throw new Error(`Expected foo to add 1 to input`);
-  }
+  // @ts-expect-error module.exports
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  expect(module.exports.foo(5)).toEqual(6);
 });
 
 test("should webpack compile a some raw code and successfully run the result", async () => {
   const code = await webpackCompile({
+    // @ts-expect-error webpack type does not match configuration
     webpack,
+    // @ts-expect-error Configuration not assignable to WebpackConfig
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     config: getWebpackConfig(),
     code: `
             export function bar(num : number) : number {
@@ -51,23 +55,21 @@ test("should webpack compile a some raw code and successfully run the result", a
   }
 
   const module = {};
-
   // eslint-disable-next-line no-eval, security/detect-eval-with-expression
   eval(code);
 
-  // eslint-disable-next-line import/no-commonjs
-  if (!module.exports.bar || typeof module.exports.bar !== "function") {
-    throw new Error(`Expected module to export bar function`);
-  }
+  // @ts-expect-error global is any
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  expect(module.exports.bar).toBeTypeOf("function");
 
-  // eslint-disable-next-line import/no-commonjs
-  if (module.exports.bar(5) !== 10) {
-    throw new Error(`Expected bar to multiply input by 2`);
-  }
+  // @ts-expect-error global is any
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  expect(module.exports.bar(5)).toEqual(10);
 });
 
 test("should webpack compile a some raw code without any config, and successfully run the result", async () => {
   const code = await webpackCompile({
+    // @ts-expect-error webpack type does not match configuration
     webpack,
     code: `
             global.baz = function baz(num) {
@@ -83,11 +85,10 @@ test("should webpack compile a some raw code without any config, and successfull
   // eslint-disable-next-line no-eval, security/detect-eval-with-expression
   eval(code);
 
-  if (!global.baz || typeof global.baz !== "function") {
-    throw new Error(`Expected module to export baz function`);
-  }
-
-  if (global.baz(5) !== 25) {
-    throw new Error(`Expected baz to be squared`);
-  }
+  // @ts-expect-error global is any
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  expect(global.baz).toBeTypeOf("function");
+  // @ts-expect-error global is any
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  expect(global.baz(5)).toEqual(25);
 });

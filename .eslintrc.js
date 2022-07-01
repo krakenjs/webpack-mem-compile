@@ -1,5 +1,10 @@
-/* @flow */
-
 module.exports = {
-  extends: "@krakenjs/eslint-config-grumbler/eslintrc-node",
+  extends:
+    "./node_modules/@krakenjs/eslint-config-grumbler/eslintrc-typescript.js",
+
+  globals: {
+    __TEST__: true,
+  },
+
+  rules: {},
 };

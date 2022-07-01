@@ -1,55 +1,50 @@
-/* @flow */
-
 import MemoryFS from "memory-fs";
 
 import { getTempFile } from "./util";
 
-// eslint-disable-next-line flowtype/require-exact-type
 type WebpackConfig = {
-  entry?: string,
-  mode?: string,
-  output?: {|
-    path: string,
-    filename: string,
-  |},
+  entry?: string;
+  mode?: string;
+  output?: {
+    path: string;
+    filename: string;
+  };
 };
 
-type Webpack = (WebpackConfig) => {|
-  outputFileSystem: {|
-    data: {
-      [string]: string,
-    },
-  |},
+type Webpack = (arg0: WebpackConfig) => {
+  outputFileSystem: {
+    data: Record<string, string>;
+  };
   run: (
-    (
+    arg0: (
       err: Error,
-      stats: {|
-        hasErrors: () => boolean,
-        hasWarnings: () => boolean,
-        toString: ({| errorDetails: boolean, warnings: boolean |}) => string,
-      |}
+      stats: {
+        hasErrors: () => boolean;
+        hasWarnings: () => boolean;
+        toString: (arg0: {
+          errorDetails: boolean;
+          warnings: boolean;
+        }) => string;
+      }
     ) => void
-  ) => void,
-|};
+  ) => void;
+};
 
 export async function webpackCompile({
   webpack,
-  config = { mode: "production" },
+  config = {
+    mode: "production",
+  },
   code,
-}: {|
-  webpack: Webpack,
-  config?: WebpackConfig,
-  code?: string,
-|}): Promise<string> {
+}: {
+  webpack: Webpack;
+  config?: WebpackConfig;
+  code?: string;
+}): Promise<string> {
   const webpackConfig = {
     ...config,
-    output: {
-      ...config.output,
-      path: "/",
-      filename: "output.js",
-    },
+    output: { ...config.output, path: "/", filename: "output.js" },
   };
-
   let tempFile;
 
   if (code) {
@@ -59,17 +54,18 @@ export async function webpackCompile({
   }
 
   const compiler = webpack(webpackConfig);
-
   compiler.outputFileSystem = new MemoryFS();
 
-  const result = await new Promise((resolve, reject) => {
+  const result = await new Promise<string>((resolve, reject) => {
     compiler.run((err, stats) => {
       if (err) {
-        return reject(err);
+        reject(err);
+
+        return;
       }
 
       if (stats.hasErrors()) {
-        return reject(
+        reject(
           new Error(
             stats.toString({
               errorDetails: true,
@@ -77,6 +73,8 @@ export async function webpackCompile({
             })
           )
         );
+
+        return;
       }
 
       resolve(compiler.outputFileSystem.data["output.js"].toString());
