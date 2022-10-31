@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/krakenjs/webpack-mem-compile/compare/v2.0.1...v2.0.2) (2022-10-31)
+
+
+### Bug Fixes
+
+* missing memory-fs dependency ([#6](https://github.com/krakenjs/webpack-mem-compile/issues/6)) ([f3d5c8f](https://github.com/krakenjs/webpack-mem-compile/commit/f3d5c8f38271617aded87a5341ffc2ecae06af28))
+
+
+* update codecov action ([0bd389c](https://github.com/krakenjs/webpack-mem-compile/commit/0bd389cdbf28fc5c8186bd8b59c2c30dbc07118d))
+* use prettier ([#4](https://github.com/krakenjs/webpack-mem-compile/issues/4)) ([1c9fffe](https://github.com/krakenjs/webpack-mem-compile/commit/1c9fffef57129cfe9cc80479c74caff069b88830))
+
 ### [2.0.1](https://github.com/krakenjs/webpack-mem-compile/compare/v2.0.0...v2.0.1) (2022-03-29)
 
 
