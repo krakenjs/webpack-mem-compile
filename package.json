@@ -74,6 +74,7 @@
     "@krakenjs/grumbler-scripts": "^8.0.4",
     "babel-core": "^7.0.0-bridge.0",
     "flow-bin": "0.85.0",
+    "flow-typed": "^3.8.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.4.0",
     "prettier": "^2.6.2",
