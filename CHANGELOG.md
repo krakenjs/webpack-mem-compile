@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/krakenjs/webpack-mem-compile/compare/v2.0.2...v3.0.0) (2022-12-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* convert to typescript and vitest (#9)
+
+### Bug Fixes
+
+* grumbler scripts 8 ([#8](https://github.com/krakenjs/webpack-mem-compile/issues/8)) ([79f89ce](https://github.com/krakenjs/webpack-mem-compile/commit/79f89ce75a6a73fc83e7ee4d037342d5b31bc53c))
+
+
+* convert to typescript and vitest ([#9](https://github.com/krakenjs/webpack-mem-compile/issues/9)) ([d6b251e](https://github.com/krakenjs/webpack-mem-compile/commit/d6b251ebe5fc9a016b8b6eb13b9ab20933fdffd5))
+
 ### [2.0.2](https://github.com/krakenjs/webpack-mem-compile/compare/v2.0.1...v2.0.2) (2022-10-31)
 
 
