@@ -5,7 +5,7 @@
 [![npm version][version-badge]][package]
 [![apache license][license-badge]][license]
 
-[build-badge]: https://img.shields.io/github/workflow/status/krakenjs/webpack-mem-compile/build?logo=github&style=flat-square
+[build-badge]: https://img.shields.io/github/actions/workflow/status/krakenjs/webpack-mem-compile/main.yml?branch=main&logo=github&style=flat-square
 [build]: https://github.com/krakenjs/webpack-mem-compile/actions?query=workflow%3Abuild
 [coverage-badge]: https://img.shields.io/codecov/c/github/krakenjs/webpack-mem-compile.svg?style=flat-square
 [coverage]: https://codecov.io/github/krakenjs/webpack-mem-compile/
