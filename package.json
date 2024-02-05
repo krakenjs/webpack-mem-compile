@@ -1,6 +1,6 @@
 {
   "name": "@krakenjs/webpack-mem-compile",
-  "version": "4.0.0-next.4",
+  "version": "4.0.0-next.5",
   "description": "Webpack compile to memory",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -81,7 +81,7 @@
     "@krakenjs/babel-config-grumbler": "^8.1.0",
     "@krakenjs/eslint-config-grumbler": "^8.1.0",
     "@krakenjs/typescript-config-grumbler": "^8.1.0",
-    "@krakenjs/webpack-config-grumbler": "^8.1.2-next.12",
+    "@krakenjs/webpack-config-grumbler": "^8.1.2-next.14",
     "@types/fs-extra": "^9.0.13",
     "@types/memory-fs": "^0.3.3",
     "@types/uuid": "^8.3.4",
