@@ -6,7 +6,7 @@ import { getWebpackConfig } from "@krakenjs/webpack-config-grumbler";
 
 import { webpackCompile } from "../src";
 
-test.skip("should webpack compile a module and successfully run the result", async () => {
+test("should webpack compile a module and successfully run the result", async () => {
   const config = getWebpackConfig({
     entry: join(__dirname, "test-module"),
   });
@@ -38,7 +38,7 @@ test.skip("should webpack compile a module and successfully run the result", asy
   expect(module.exports.foo(5)).toEqual(6);
 });
 
-test.skip("should webpack compile a some raw code and successfully run the result", async () => {
+test("should webpack compile a some raw code and successfully run the result", async () => {
   const code = await webpackCompile({
     // @ts-expect-error webpack type does not match configuration
     webpack,
