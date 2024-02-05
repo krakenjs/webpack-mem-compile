@@ -76,8 +76,6 @@
     "node": ">= 14"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.9",
-    "@babel/preset-env": "^7.23.9",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
     "@krakenjs/babel-config-grumbler": "^8.1.0",
